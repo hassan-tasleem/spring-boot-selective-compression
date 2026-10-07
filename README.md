@@ -83,8 +83,8 @@ Add the library to your Spring Boot application's `pom.xml`:
 
 ```xml
 <dependency>
-    <groupId>YOUR_GROUP_ID</groupId>
-    <artifactId>YOUR_ARTIFACT_ID</artifactId>
+    <groupId>io.github.hassan-tasleem</groupId>
+    <artifactId>spring-boot-selective-compression</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
