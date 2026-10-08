@@ -1,7 +1,5 @@
 package com.compression.compression_library.strategy;
 
-import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
@@ -21,12 +19,10 @@ public class GzipCompressionProvider
 
     @Override
     public OutputStream createOutputStream(
-            HttpServletResponse response
+            OutputStream outputStream
     ) throws IOException {
 
-        return new GZIPOutputStream(
-                response.getOutputStream()
-        );
+        return new GZIPOutputStream(outputStream);
     }
 
     @Override
@@ -34,9 +30,9 @@ public class GzipCompressionProvider
             OutputStream outputStream
     ) throws IOException {
 
-        GZIPOutputStream gzipOutputStream =
+        GZIPOutputStream gzip =
                 (GZIPOutputStream) outputStream;
 
-        gzipOutputStream.finish();
+        gzip.finish();
     }
 }

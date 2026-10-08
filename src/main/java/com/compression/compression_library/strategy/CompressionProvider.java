@@ -1,7 +1,5 @@
 package com.compression.compression_library.strategy;
 
-import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -12,7 +10,7 @@ public interface CompressionProvider {
     int serverPriority();
 
     OutputStream createOutputStream(
-            HttpServletResponse response
+            OutputStream outputStream
     ) throws IOException;
 
     void finish(

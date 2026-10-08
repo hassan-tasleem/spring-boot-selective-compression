@@ -2,20 +2,24 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="
+             http://maven.apache.org/POM/4.0.0
+             https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.1.1</version>
+		<version>3.5.6</version>
 		<relativePath/>
 	</parent>
 
 	<groupId>io.github.hassan-tasleem</groupId>
 	<artifactId>spring-boot-selective-compression</artifactId>
-	<version>1.0.0</version>
+
+	<version>1.1.0</version>
+
 	<packaging>jar</packaging>
 
 	<name>Spring Boot Selective Compression</name>
@@ -25,7 +29,9 @@
 		and endpoint-level control using the @Compress annotation.
 	</description>
 
-	<url>https://github.com/hassan-tasleem/spring-boot-selective-compression</url>
+	<url>
+		https://github.com/hassan-tasleem/spring-boot-selective-compression
+	</url>
 
 	<properties>
 		<java.version>21</java.version>
@@ -49,28 +55,40 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git://github.com/hassan-tasleem/spring-boot-selective-compression.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/hassan-tasleem/spring-boot-selective-compression.git</developerConnection>
-		<url>https://github.com/hassan-tasleem/spring-boot-selective-compression</url>
+		<connection>
+			scm:git:git://github.com/hassan-tasleem/spring-boot-selective-compression.git
+		</connection>
+
+		<developerConnection>
+			scm:git:ssh://git@github.com/hassan-tasleem/spring-boot-selective-compression.git
+		</developerConnection>
+
+		<url>
+			https://github.com/hassan-tasleem/spring-boot-selective-compression
+		</url>
+
 		<tag>HEAD</tag>
 	</scm>
 
 	<dependencies>
 
+		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webmvc</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Brotli -->
 		<dependency>
 			<groupId>com.aayushatharva.brotli4j</groupId>
 			<artifactId>brotli4j</artifactId>
 			<version>1.23.0</version>
 		</dependency>
 
+		<!-- Tests -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 
@@ -79,6 +97,7 @@
 	<build>
 		<plugins>
 
+			<!-- Java compiler -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -87,6 +106,7 @@
 				</configuration>
 			</plugin>
 
+			<!-- Sources JAR -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -101,6 +121,7 @@
 				</executions>
 			</plugin>
 
+			<!-- Javadocs JAR -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -118,6 +139,8 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- GPG signing -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
@@ -132,6 +155,8 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- Maven Central -->
 			<plugin>
 				<groupId>org.sonatype.central</groupId>
 				<artifactId>central-publishing-maven-plugin</artifactId>

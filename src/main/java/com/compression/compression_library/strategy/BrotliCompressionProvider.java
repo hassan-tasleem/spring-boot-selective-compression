@@ -2,6 +2,7 @@ package com.compression.compression_library.strategy;
 
 import com.aayushatharva.brotli4j.Brotli4jLoader;
 import com.aayushatharva.brotli4j.encoder.BrotliOutputStream;
+
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
@@ -12,10 +13,6 @@ public class BrotliCompressionProvider
 
     public BrotliCompressionProvider() {
 
-        /*
-         * Make sure the native Brotli library
-         * is available.
-         */
         Brotli4jLoader.ensureAvailability();
     }
 
@@ -31,11 +28,11 @@ public class BrotliCompressionProvider
 
     @Override
     public OutputStream createOutputStream(
-            HttpServletResponse response
+            OutputStream outputStream
     ) throws IOException {
 
         return new BrotliOutputStream(
-                response.getOutputStream()
+                outputStream
         );
     }
 
