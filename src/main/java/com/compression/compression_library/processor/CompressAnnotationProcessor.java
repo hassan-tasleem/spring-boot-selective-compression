@@ -19,7 +19,7 @@ import java.util.Set;
         "com.compression.compression_library.annotation.Compress"
 )
 @SupportedSourceVersion(
-        SourceVersion.RELEASE_21
+        SourceVersion.RELEASE_17
 )
 public class CompressAnnotationProcessor
         extends AbstractProcessor {
