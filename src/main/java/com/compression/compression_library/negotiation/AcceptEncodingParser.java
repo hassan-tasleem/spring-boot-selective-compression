@@ -12,16 +12,10 @@ public class AcceptEncodingParser {
 
         String header = request.getHeader("Accept-Encoding");
 
-        /*
-         * No Accept-Encoding header:
-         *
-         * According to HTTP semantics, the absence of the
-         * header means the client has not explicitly rejected
-         * content codings.
-         */
+
         if (header == null) {
             return List.of(
-                    new EncodingPreference("*", 1.0, 0)
+                    new EncodingPreference("identity", 1.0, 0)
             );
         }
 
@@ -76,7 +70,6 @@ public class AcceptEncodingParser {
                         .trim();
 
                 if ("q".equals(name)) {
-
                     try {
                         quality = Double.parseDouble(value);
                     } catch (NumberFormatException exception) {

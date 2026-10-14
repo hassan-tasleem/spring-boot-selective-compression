@@ -18,7 +18,7 @@
 	<groupId>io.github.hassan-tasleem</groupId>
 	<artifactId>spring-boot-selective-compression</artifactId>
 
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 
 	<packaging>jar</packaging>
 
@@ -37,6 +37,7 @@
 		<java.version>17</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<brotli4j.version>1.23.0</brotli4j.version>
 	</properties>
 
 	<licenses>
@@ -72,20 +73,44 @@
 
 	<dependencies>
 
-		<!-- Spring MVC -->
+		<!--  Spring MVC  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
-		<!-- Brotli -->
+		<!--  Brotli: Java classes (THIS WAS MISSING)  -->
 		<dependency>
 			<groupId>com.aayushatharva.brotli4j</groupId>
 			<artifactId>brotli4j</artifactId>
-			<version>1.23.0</version>
+			<version>${brotli4j.version}</version>
 		</dependency>
-
-		<!-- Tests -->
+		<!--  Brotli: native libraries per platform  -->
+		<dependency>
+			<groupId>com.aayushatharva.brotli4j</groupId>
+			<artifactId>native-windows-x86_64</artifactId>
+			<version>${brotli4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aayushatharva.brotli4j</groupId>
+			<artifactId>native-linux-x86_64</artifactId>
+			<version>${brotli4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aayushatharva.brotli4j</groupId>
+			<artifactId>native-linux-aarch64</artifactId>
+			<version>${brotli4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aayushatharva.brotli4j</groupId>
+			<artifactId>native-osx-x86_64</artifactId>
+			<version>${brotli4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aayushatharva.brotli4j</groupId>
+			<artifactId>native-osx-aarch64</artifactId>
+			<version>${brotli4j.version}</version>
+		</dependency>
+		<!--  Tests  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
